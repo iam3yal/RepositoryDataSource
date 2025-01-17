@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net481</TargetFramework>
+        <LangVersion>Latest</LangVersion>
+        <RootNamespace>RepositoryDataSource.Demo.Data</RootNamespace>
+        <AssemblyName>RepositoryDataSource.Demo.Data</AssemblyName>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    </PropertyGroup>
+</Project>
