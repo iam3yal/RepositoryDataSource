@@ -5,10 +5,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Web.Compilation;
     
-[SuppressMessage("ReSharper", "InconsistentNaming")]
 internal static class TypeHelper
 {
-    private const string ASPX_TEMP_FOLDER = "Temporary ASP.NET Files";
+    private const string AspxTempFolder = "Temporary ASP.NET Files";
 
     private static readonly string[] SystemFolders = [
         Environment.GetFolderPath(Environment.SpecialFolder.Windows),
@@ -30,7 +29,7 @@ internal static class TypeHelper
 
                 var continuing = SystemFolders.Any(
                     folder => assembly.IsDynamic || (assembly.Location.StartsWith(folder, true, null)
-                                                     && !assembly.Location.Contains(ASPX_TEMP_FOLDER)));
+                                                     && !assembly.Location.Contains(AspxTempFolder)));
 
                 if (continuing)
                 {
