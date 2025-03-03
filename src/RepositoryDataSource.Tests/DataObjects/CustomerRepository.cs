@@ -16,7 +16,6 @@ public class CustomerRepository
         new() { ID = 77, Name = "George Brooks" }
     ];
 
-    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public Customer GetByID(int id)
     {
         var customer = _customers.FirstOrDefault(customers => customers.ID == id);
