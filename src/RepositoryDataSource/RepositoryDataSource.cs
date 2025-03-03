@@ -20,7 +20,7 @@ using System.Web.UI.WebControls;
 [ToolboxData("<{0}:RepositoryDataSource runat=server></{0}:RepositoryDataSource>")]
 public class RepositoryDataSource : DataSourceControl, IRepositoryDataSource
 {
-    private const string DefaultViewName = "DefaultPlainView";
+    private const string DefaultViewName = "DefaultView";
 
     private RepositoryDataSourceView _view;
 
@@ -34,7 +34,6 @@ public class RepositoryDataSource : DataSourceControl, IRepositoryDataSource
     }
 
     [DefaultValue(false)]
-    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public bool ConvertNullToDBNull
     {
         get => GetView().ConvertNullToDBNull;
