@@ -99,7 +99,6 @@ public sealed partial class RepositoryDataSourceView(IRepositoryDataSource owner
         }
     }
 
-    [SuppressMessage("ReSharper", "InconsistentNaming")] 
     public bool ConvertNullToDBNull { get; set; }
 
     public string DeleteMethod
