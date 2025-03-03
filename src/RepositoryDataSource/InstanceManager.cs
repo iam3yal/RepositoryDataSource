@@ -9,14 +9,12 @@ using System.Reflection;
 
 public sealed class InstanceManager(IRepositoryDataSource owner, IDictionary cache)
 {
-    private const string ContextString = "__RepositoryDataSource_{0}";
-
-    private const BindingFlags PublicMembersFlags = BindingFlags.Instance
+    private const BindingFlags _publicMembersFlags = BindingFlags.Instance
                                                     | BindingFlags.Static
                                                     | BindingFlags.Public
                                                     | BindingFlags.FlattenHierarchy;
 
-    private readonly string _contextString = string.Format(ContextString, owner.ID);
+    private readonly string _contextString = $"__RepositoryDataSource_{owner.ID}";
 
     private object _targetObject;
 
@@ -46,9 +44,9 @@ public sealed class InstanceManager(IRepositoryDataSource owner, IDictionary cac
 
             var methodName = target.Substring(index);
 
-            var property = type.GetProperty(methodName, PublicMembersFlags);
+            var property = type.GetProperty(methodName, _publicMembersFlags);
 
-            var method = property != null ? property.GetGetMethod() : type.GetMethod(methodName, PublicMembersFlags);
+            var method = property != null ? property.GetGetMethod() : type.GetMethod(methodName, _publicMembersFlags);
 
             if (method == null)
             {
@@ -77,7 +75,7 @@ public sealed class InstanceManager(IRepositoryDataSource owner, IDictionary cac
     }
 
     public MethodInfo[] GetMethods()
-        => CreateInstance().GetType().GetMethods(PublicMembersFlags);
+        => CreateInstance().GetType().GetMethods(_publicMembersFlags);
 
     public object GetTargetObject()
     {
