@@ -18,7 +18,6 @@ public interface IRepositoryDataSource : IDataSource
 
     ParameterCollection FilterParameters { get; }
 
-    [SuppressMessage("ReSharper", "InconsistentNaming")] 
     string ID { get; set; }
 
     string InsertMethod { get; set; }
